@@ -2,6 +2,7 @@ package main
 
 import (
 	"flowerstore/api"
+	"flowerstore/middleware"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -11,9 +12,9 @@ import (
 func NewRouter() (*chi.Mux, error) {
 	r := chi.NewRouter()
 
-	// if err := middleware.Init(r, c); err != nil {
-	// 	return nil, errors.Wrap(err, "failed to initialize middlewares")
-	// }
+	if err := middleware.Init(r); err != nil {
+		return nil, errors.Wrap(err, "failed to initialize middlewares")
+	}
 
 	if err := api.Init(r); err != nil {
 		return nil, errors.Wrap(err, "failed to initialize api")
@@ -28,7 +29,7 @@ func Run() error {
 		return errors.Wrap(err, "error initializing router")
 	}
 
-	http.ListenAndServe(":8080", router)
+	http.ListenAndServe(":3000", router)
 
 	return nil
 }
