@@ -3,4 +3,4 @@
 Final Project in TDTU
 
 DataBase: Firebase realtime
-BackEnd: NodeJs
+BackEnd: Golang
