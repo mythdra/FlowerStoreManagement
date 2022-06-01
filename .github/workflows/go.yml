@@ -20,5 +20,5 @@ jobs:
       - name: Build
         run: go build -v ./BackEnd/main.go
 
-      - name: Test
-        run: go test -v ./BackEnd/...
+      # - name: Test
+      #   run: go test -v ./BackEnd/
