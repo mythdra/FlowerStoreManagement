@@ -3,6 +3,7 @@ package config
 import (
 	"context"
 	"log"
+	"os"
 
 	firebase "firebase.google.com/go/v4"
 	"firebase.google.com/go/v4/db"
@@ -15,7 +16,7 @@ func GetConnect() *db.Client {
 		DatabaseURL: "https://flowersstore-6cd4d-default-rtdb.asia-southeast1.firebasedatabase.app",
 	}
 	// Fetch the service account key JSON file contents
-	opt := option.WithCredentialsFile("/Users/can/Desktop/flower.json")
+	opt := option.WithCredentialsJSON([]byte(os.Getenv("KEY_FIREBASE")))
 
 	// Initialize the app with a service account, granting admin privileges
 	app, err := firebase.NewApp(ctx, conf, opt)
