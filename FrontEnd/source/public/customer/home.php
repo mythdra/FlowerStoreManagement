@@ -62,10 +62,10 @@
                                 echo	"
                                         <div class='d-flex task-list'>
                                             <div class='task-name__heading col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                                <p class='task-name e__check-font-style mb-0 p-1'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
+                                                <p class='task-name e__check-font-style mb-0 p-1'> <a class='text-dark' href='product_infomation_cus.php?id=$id'> $name </a></p>
                                             </div>
                                             <div class='task-description__heading col-xl-2 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                                <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
+                                                <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='product_infomation_cus.php?id=$id'> $number </a></p>
                                             </div>
                                             <div class='task-time__heading col-xl-2 border border-top-0 border-left-0'>
                                                 <p class='mb-0 p-1 e__check-font-style'>$price</p>
@@ -73,8 +73,7 @@
                                             <div class='task-rate__heading col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
                                                 <p class='badge badge-info mb-0 p-1 e__check-font-style'>$desc</p>
                                             </div>										
-                                        </div>
-                                        ";
+                                        </div>";
                             }
 
                     ?>		      

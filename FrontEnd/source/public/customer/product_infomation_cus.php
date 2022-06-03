@@ -107,8 +107,7 @@
                         </div>
                         <div class='errorMess'> $message </div>
 
-                        <button type='submit' name='update' class='btn btn-primary'>Update</button>
-                        <button type='submit' name='delete' class='btn btn-primary'>Delete</button>
+                        <button type='submit' name='addToCart' class='btn btn-primary'>Add to cart</button>
                     </form>       
                     ";
                 }

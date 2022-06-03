@@ -1,5 +1,6 @@
 <?php
-	
+	session_start();
+
 	require_once("connect_db.php");
 
 	$sql = "SELECT * FROM account WHERE type = 0";
@@ -9,7 +10,15 @@
 		$username = $row["email"];
 		$password = $row['password'];
 
+		// Kiểm tra mật khẩu có tương đồng không?
+		if (!password_verify($password, $data['matKhau'])) {
+			return array('code' => 3, 'error' => 'Mật khẩu không chính xác');
+		} else {
+			return array('code' => 0, 'error' => '', 'data' => $data);
+		}
+
 	}
+
 
 
 	if (isset($_POST['submit'])) {
@@ -17,6 +26,22 @@
 			header("home.php");
 		}
 	}
+
+
+    // Kiểm tra nếu người dùng đã đang nhập mà vẫn muốn truy cập trang đăng nhập -> chuyển đến index.php
+    // if (isset($_SESSION['maNhanVien'])) {
+    //     header("Location: index.php");
+    //     die();
+    // }
+
+    // Kiểm tra người dùng đã đổi mật khẩu chưa?
+	// if (isset($_SESSION['doiMatKhau'])) {
+    //     if ($_SESSION['doiMatKhau'] == 0) {
+    //         header("Location: change_pwd_first.php");
+    //         die();
+    //     } 
+    // } 
+
 ?>
 
 <!DOCTYPE html>
