@@ -27,13 +27,16 @@ services:
   #     - pgadmin-data:/var/lib/pgadmin
 
   backend:
-    build: 
-      context: .
-      dockerfile: ./docker/go/Dockerfile
+    image: cosmtrek/air
+    # working_dir value has to be the same of mapped volume
+    working_dir: /app
     ports:
-      - "3000:3000"
+      - 3000:3000
     environment:
       KEY_FIREBASE: ${KEY_FIREBASE}
+
+    volumes:
+      - ./Backend/:/app/
 volumes:
   db-data:
   pgadmin-data:
