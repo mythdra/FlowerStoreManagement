@@ -18,3 +18,8 @@
     background-color:transparent;
 }
 
+#confirm_password-field {
+    border: solid #333 3px;
+    background-color:transparent;
+}
+

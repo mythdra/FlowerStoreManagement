@@ -1,7 +1,5 @@
 
-"use strict";
-
-// var fullHeight = function() {
+// ar fullHeight = function() {
 
 //     $('.js-fullheight').css('height', $(window).height());
 //     $(window).resize(function(){
@@ -39,22 +37,17 @@
 //     }
 // }) 
 
-var submitBtn = document.getElementById("btnSubmit");
-submitBtn.onclick = function() {
-    if ($("#username-field").val() == "admin" && $("#password-field").val() == "123456") {
 
-        location.href = "http://127.0.0.1:5500/web1/home.html";
-        console.log("true");
-    }
+// -------------------------------- Add page ----------------------------
+function openListAllProduct() {
+  window.location.href = "home.php";
 }
 
-try {
-    var ref = firebase.database().ref("URL").child("1");
-    ref.on("value", function(snapshot) {
-        var changedPost = snapshot.val();
-        alert(changedPost);
-      });
-    }
-    catch(err) {
-      alert("Error");
+function openAddPageProduct(e) {
+  window.location.href = "addProduct.php";
 }
+
+// ---------------------------------------------------------------------
+
+
+// ----------------------------------------- Home page --------------------------- 
