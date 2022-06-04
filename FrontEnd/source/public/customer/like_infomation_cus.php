@@ -33,32 +33,21 @@
     }
 
     
-    if (isset($_POST['addToLike'])) {
+    $message = '';
+
+    if (isset($_POST['removeFromLike'])) {
 
         $id = $_GET['id'];
-        $name = $_POST['name'];
-        $number = $_POST['number'];
-        $price = $_POST['price'];
-        $desc = $_POST['desc'];
     
-        $sql = "INSERT INTO likeProduct(idProduct, name, number, price, description) VALUES (?, ?, ?, ?, ?) ";
-        // $result = connect_db()->query($sql);
+        $sql = "DELETE FROM `likeProduct` WHERE id = ?";
         $conn = connect_db();
         $stm = $conn->prepare($sql);
-        $stm->bind_param('isids', $id, $name, $number, $price, $desc);
-        $stm->execute();
-    
-        // echo $name;
-        // echo $number;
-        // echo $price;
-        if ($stm->affected_rows == 1) {
-            $message = "Thêm thành công";
-            // header("Location: product_infomation_cus.php?id=$id'.php");
-        } else {
-            $message = "Thêm thất bại";
-        }
-    
+        $stm -> bind_param("i", $id);
+        $stm -> execute();
+
+        header("Location : home.php");
     }
+
 
 ?>
 
@@ -96,7 +85,7 @@
 
         <?php
             require_once("../connect_db.php");
-            $sql = "SELECT * FROM flower WHERE id = '".$_GET['id']."'";
+            $sql = "SELECT * FROM likeProduct WHERE id = '".$_GET['id']."'";
                 $result = connect_db()->query($sql);
 
                 while ($row = $result->fetch_assoc()) {
@@ -128,7 +117,7 @@
                         <div class='errorMess'> $message </div>
 
                         <button type='submit' name='addToCart' class='btn btn-primary'>Add to cart</button>
-                        <button type='submit' name='addToLike' class='btn btn-primary'>Like</button>
+                        <button type='submit' name='removeFromLike' class='btn btn-primary'>DisLike</button>
                     </form>       
                     ";
                 }

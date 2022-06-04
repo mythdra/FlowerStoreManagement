@@ -38,7 +38,7 @@
 // }) 
 
 
-// -------------------------------- Add page ----------------------------
+// -------------------------------- Admin page ----------------------------
 function openListAllProduct() {
   window.location.href = "home.php";
 }
@@ -50,4 +50,15 @@ function openAddPageProduct(e) {
 // ---------------------------------------------------------------------
 
 
-// ----------------------------------------- Home page --------------------------- 
+// ----------------------------------------- Customer page --------------------------- 
+function openListAllProductCus() {
+  window.location.href = "home.php";
+}
+
+function openCartView() {
+  window.location.href = "cartView.php";
+}
+
+function openLikeView() {
+  window.location.href = "likeView.php";
+}
