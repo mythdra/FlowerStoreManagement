@@ -10,14 +10,20 @@
         $id = $_GET['id'];
         $name = $_POST['name'];
         $number = $_POST['number'];
+        $numberBuy = $_POST['numberBuy'];
         $price = $_POST['price'];
         $desc = $_POST['desc'];
-    
-        $sql = "INSERT INTO cart(idProduct, name, number, price, description) VALUES (?, ?, ?, ?, ?) ";
+        
+        if ($numberBuy > $number) {
+            $message = "The amount you want to buy is bigger than the amount we have";
+            header("product_infomation_cus.php?id=$id");
+        }
+
+        $sql = "INSERT INTO cart(idProduct, name, numberBuy, price, description) VALUES (?, ?, ?, ?, ?) ";
         // $result = connect_db()->query($sql);
         $conn = connect_db();
         $stm = $conn->prepare($sql);
-        $stm->bind_param('isids', $id, $name, $number, $price, $desc);
+        $stm->bind_param('isids', $id, $name, $numberBuy, $price, $desc);
         $stm->execute();
     
         // echo $name;
@@ -105,25 +111,45 @@
                     $number = $row['number'];
                     $price = $row['price'];
                     $desc = $row['description'];
+                    $status = $row['status'];
 
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
                         <h2 class='text-center'>Product Infomation</h2>
                         <div class='form-group'>
                             <label for='nameProduct'>Name</label>
-                            <input type='text' class='form-control' id='nameProduct' name='name' value='$name'>
+                            <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
                         </div>
-                        <div class='form-group'>
-                            <label for='numberProduct'>Number</label>
-                            <input type='number' class='form-control' id='numberProduct' name='number' value= $number>
-                        </div>
-                        <div class='form-group'>
-                            <label for='priceProduct'>Price</label>
-                            <input type='number' class='form-control' id='priceProduct' name='price' value=$price>
+                        <div class='d-flex justify-content-around'>
+
+                            <div class='form-group'>
+                                <label for='numberProduct'>Number</label>
+                                <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='numberBuyProduct'>Select number to buy</label>
+                                <input type='number' class='form-control' id='numberBuyProduct' name='numberBuy' placeholder='Number'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='priceProduct'>Price</label>
+                                <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price' readonly>
+                            </div>
+                            <div class='form-group'>
+                                <label for='status' class='control-label'>Status</label>
+                                <div class=''>
+                                    <select class='form-control' id='status' value=$status name='status' readonly>
+                                        <option value='' disabled selected>Status</option>
+                                        <option value='new'>new</option>
+                                        <option value='old'>old</option>
+                                    </select>          
+                                
+                                </div>
+                            </div>       
+
                         </div>
                         <div class='form-group'>
                             <label for='descProduct'>Description</label>
-                            <textarea class='form-control' id='descProduct' name='desc' rows='3'>$desc</textarea>
+                            <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
                         </div>
                         <div class='errorMess'> $message </div>
 
