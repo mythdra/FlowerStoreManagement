@@ -3,10 +3,10 @@
 
     $message = "";
     if (isset($_POST['submit'])) {
-        if (!isset($_POST['name'])  || !isset($_POST['number']) || !isset($_POST['price']) || !isset($_POST['desc'])){
+        if (!isset($_POST['name'])  || !isset($_POST['number']) || !isset($_POST['price']) || !isset($_POST['desc']) || !isset($_POST['status'])){
             $message = 'vui lòng nhập đầy đủ thông tin!!';
             
-          }else if (empty($_POST['name']) || empty($_POST['number']) || empty($_POST['price']) || empty($_POST['desc'])){
+          }else if (empty($_POST['name']) || empty($_POST['number']) || empty($_POST['price']) || empty($_POST['desc']) ){
             $message = 'Không được để trống thông tin';
           }
             else {
@@ -14,17 +14,22 @@
                 $number = $_POST['number'];
                 $price = $_POST['price'];
                 $desc = $_POST['desc'];
+                $status = $_POST['status'];
             
-                $sql = "INSERT INTO flower(name, number, price, description) VALUES (?, ?, ?, ?)";
-                // $result = connect_db()->query($sql);
-                $conn = connect_db();
-                $stm = $conn->prepare($sql);
-                $stm->bind_param('sids', $name, $number, $price, $desc);
-                $stm->execute();
-            
+                
                 // echo $name;
                 // echo $number;
                 // echo $price;
+                // echo $status;
+                // echo $desc;
+
+                $sql = "INSERT INTO flower(name, number, price, description, status) VALUES (?, ?, ?, ?, ?)";
+                // $result = connect_db()->query($sql);
+                $conn = connect_db();
+                $stm = $conn->prepare($sql);
+                $stm->bind_param('sidss', $name, $number, $price, $desc, $status);
+                $stm->execute();
+        
                 if ($stm->affected_rows == 1) {
                     header('Location: home.php');
                 } else {
@@ -74,14 +79,29 @@
                     <label for="nameProduct">Name</label>
                     <input type="text" class="form-control" id="nameProduct" name="name" placeholder="Enter name">
                 </div>
-                <div class="form-group">
-                    <label for="numberProduct">Number</label>
-                    <input type="number" class="form-control" id="numberProduct" name="number" placeholder="Number">
+                <div class="d-flex justify-content-around">
+
+                    <div class="form-group">
+                        <label for="numberProduct">Number</label>
+                        <input type="number" class="form-control" id="numberProduct" name="number" placeholder="Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="priceProduct">Price</label>
+                        <input type="number" class="form-control" id="priceProduct" name="price" placeholder="Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="control-label">Status</label>
+                        <div class="">
+                            <select class="form-control" id="status" name="status">
+                                <option value="" disabled selected>Status</option>
+                                <option value="new">new</option>
+                                <option value="old">old</option>
+                            </select>          
+                        </div>
+                    </div>       
+
                 </div>
-                <div class="form-group">
-                    <label for="priceProduct">Price</label>
-                    <input type="number" class="form-control" id="priceProduct" name="price" placeholder="Price">
-                </div>
+
                 <div class="form-group">
                     <label for="descProduct">Description</label>
                     <textarea class="form-control" id="descProduct" name="desc" rows="3" placeholder="Description"></textarea>

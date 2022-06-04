@@ -26,17 +26,17 @@
                 </button>
             </li>
             <li class="mt-2 mb-2"> 
-                <button onclick="moveToGetCompleteTaskPage();"
+                <button onclick="openListProductStill();"
                 class="btn btn-success e__btn-task w-100 d-flex align-items-center">
                 <i class="fas fa-check-double"></i>
-                <p class="mb-0 ml-2 e__check-font-style e__task-name-btn">XÓA SẢN PHẨM</p>	
+                <p class="mb-0 ml-2 e__check-font-style e__task-name-btn">SẢN PHẨM CÒN HÀNG</p>	
                 </button>
             </li>
             <li class="mt-2 mb-2"> 
-                <button onclick="moveToGetRejectedTaskPage();"
+                <button onclick="openListProductOut();"
                 class="btn btn-danger e__btn-task w-100 d-flex align-items-center">
                 <i class="fas fa-trash"></i>
-                <p class="mb-0 ml-2 e__check-font-style e__task-name-btn"> TASKS</p>	
+                <p class="mb-0 ml-2 e__check-font-style e__task-name-btn">SẢN PHẨM HẾT HÀNG</p>	
                 </button>
             </li>
             <li class="mt-2 mb-2"> 

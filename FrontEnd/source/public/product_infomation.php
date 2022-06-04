@@ -11,16 +11,17 @@
         $name = $_POST['name'];
         $number = $_POST['number'];
         $price = $_POST['price'];
-        $desc = $_POST['description'];
+        $desc = $_POST['desc'];
+        $status = $_POST['status'];
 
-        $sql = "UPDATE flower SET name = ?, number = ?, price = ?, description = ? WHERE id = ?";
+        $sql = "UPDATE flower SET name = ?, number = ?, price = ?, description = ?, status = ? WHERE id = ?";
         $conn = connect_db();
         $stm = $conn->prepare($sql);
-        $stm -> bind_param("sidsi", $name, $number, $price, $desc, $id);
+        $stm -> bind_param("sidssi", $name, $number, $price, $desc, $status, $id);
         $stm -> execute();
         if ($stm -> affected_rows == 1) {
             $message = 'Cập nhật trạng thái thành công';
-            header('Location: home.php');
+            // header('Location: home.php');
         } else {
             $message = 'Cập nhật trạng thái thất bại';
         }
@@ -85,6 +86,7 @@
                     $number = $row['number'];
                     $price = $row['price'];
                     $desc = $row['description'];
+                    $status = $row['status'];
 
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
@@ -93,13 +95,28 @@
                             <label for='nameProduct'>Name</label>
                             <input type='text' class='form-control' id='nameProduct' name='name' value='$name'>
                         </div>
-                        <div class='form-group'>
-                            <label for='numberProduct'>Number</label>
-                            <input type='number' class='form-control' id='numberProduct' name='number' value= $number>
-                        </div>
-                        <div class='form-group'>
-                            <label for='priceProduct'>Price</label>
-                            <input type='number' class='form-control' id='priceProduct' name='price' value=$price>
+                        <div class='d-flex justify-content-around'>
+
+                            <div class='form-group'>
+                                <label for='numberProduct'>Number</label>
+                                <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='priceProduct'>Price</label>
+                                <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='status' class='control-label'>Status</label>
+                                <div class=''>
+                                    <select class='form-control' id='status' value=$status name='status'>
+                                        <option value='' disabled selected>Status</option>
+                                        <option value='new'>new</option>
+                                        <option value='old'>old</option>
+                                    </select>          
+                                
+                                </div>
+                            </div>       
+
                         </div>
                         <div class='form-group'>
                             <label for='descProduct'>Description</label>

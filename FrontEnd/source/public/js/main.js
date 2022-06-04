@@ -62,3 +62,11 @@ function openCartView() {
 function openLikeView() {
   window.location.href = "likeView.php";
 }
+
+function openListProductStill() {
+  window.location.href = "productStillView.php";
+}
+
+function openListProductOut() {
+  window.location.href = "productOutView.php";
+}

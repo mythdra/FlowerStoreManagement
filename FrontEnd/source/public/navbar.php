@@ -12,7 +12,7 @@
      <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">
         <img src="images/bg.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Bootstrap
+        Admin
         </a>
         <div class="d-flex">
 
