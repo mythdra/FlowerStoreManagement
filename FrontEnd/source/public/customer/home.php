@@ -20,6 +20,8 @@
     
     <?php
         require_once("navbar_cus.php");
+        require_once("/checkLogin.php");
+checkLogin(array(0,1,2));
     ?>
 
     <div class="row">   
@@ -52,7 +54,7 @@
                     <div class="e__task__infomation">
                     <?php
                         
-                        require_once("../connect_db.php");
+                        require_once("/connect_db.php");
                         $sql = "SELECT * FROM flower";
                             $result = connect_db()->query($sql);
 

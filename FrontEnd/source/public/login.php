@@ -1,65 +1,42 @@
 <?php
-	session_start();
-
-	require_once("connect_db.php");
-
-	$sql = "SELECT * FROM account WHERE type = 0";
+session_start();
+require_once("connect_db.php");
+if ($_SESSION['login']){
+	header("Location: home.php");
+}
+if (isset($_POST["password"]) && isset($_POST["username"])) {
+	$pass = $_POST['password'];
+	$user = $_POST['username'];
+	$sql = "SELECT * FROM account where email='$user' AND password='$pass'";
 	$result = connect_db()->query($sql);
+	if ($result->num_rows > 0) {
+		$_SESSION['login'] = true;
+		$row = $result->fetch_assoc();
 
-	while ($row = $result->fetch_assoc()) {
-		$username = $row["email"];
-		$password = $row['password'];
-
-		// Kiểm tra mật khẩu có tương đồng không?
-		if (!password_verify($password, $data['matKhau'])) {
-			return array('code' => 3, 'error' => 'Mật khẩu không chính xác');
-		} else {
-			return array('code' => 0, 'error' => '', 'data' => $data);
-		}
-
-	}
-
-
-
-	if (isset($_POST['submit'])) {
-		if ($username == "admin" && $password == "admin") {
-			header("home.php");
-		}
-	}
-
-
-    // Kiểm tra nếu người dùng đã đang nhập mà vẫn muốn truy cập trang đăng nhập -> chuyển đến index.php
-    // if (isset($_SESSION['maNhanVien'])) {
-    //     header("Location: index.php");
-    //     die();
-    // }
-
-    // Kiểm tra người dùng đã đổi mật khẩu chưa?
-	// if (isset($_SESSION['doiMatKhau'])) {
-    //     if ($_SESSION['doiMatKhau'] == 0) {
-    //         header("Location: change_pwd_first.php");
-    //         die();
-    //     } 
-    // } 
+		$_SESSION['type'] = $row["type"];
+		header("Location: home.php");
+	  }
+}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <style>
 	body {
 		background-image: url(images/bg.jpg)
 	}
-
 </style>
+
 <body class="img js-fullheight">
 
 	<section class="d-flex justify-content-center align-items-center mt-5">
@@ -73,7 +50,7 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 						<h3 class="mb-4 text-center">Have an account?</h3>
-						<form action="#" class="signin-form" method="post">
+						<form action="login.php" class="signin-form" method="post">
 							<div class="form-group">
 								<input type="text" id="username-field" name="username" class="form-control username" placeholder="Username">
 							</div>
@@ -111,4 +88,5 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

@@ -1,7 +1,8 @@
 <?php
 
     session_start();
-
+    require_once("checkLogin.php");
+checkLogin(array(0,1,2));
 	require_once('connect_db.php');
 	$message = '';
 

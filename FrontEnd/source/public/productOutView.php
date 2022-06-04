@@ -19,6 +19,8 @@
     
     <?php
         require_once("navbar.php");
+        require_once("checkLogin.php");
+checkLogin(array(0,1,2));
     ?>
 
     <div class="row">
