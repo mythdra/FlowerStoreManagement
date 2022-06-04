@@ -88,6 +88,7 @@
                     $desc = $row['description'];
                     $status = $row['status'];
 
+                    
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
                         <h2 class='text-center'>Product Infomation</h2>

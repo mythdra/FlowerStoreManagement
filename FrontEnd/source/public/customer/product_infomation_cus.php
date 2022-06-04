@@ -112,51 +112,99 @@
                     $price = $row['price'];
                     $desc = $row['description'];
                     $status = $row['status'];
-
-                    echo "
-                    <form method='post' action='' enctype='multipart/form-data' validate>
-                        <h2 class='text-center'>Product Infomation</h2>
-                        <div class='form-group'>
-                            <label for='nameProduct'>Name</label>
-                            <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
-                        </div>
-                        <div class='d-flex justify-content-around'>
-
+                    
+                    if ($number == 0) {
+                        echo "
+                        <form method='post' action='' enctype='multipart/form-data' validate>
+                            <h2 class='text-center'>Product Infomation</h2>
                             <div class='form-group'>
-                                <label for='numberProduct'>Number</label>
-                                <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
+                                <label for='nameProduct'>Name</label>
+                                <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
                             </div>
-                            <div class='form-group'>
-                                <label for='numberBuyProduct'>Select number to buy</label>
-                                <input type='number' class='form-control' id='numberBuyProduct' name='numberBuy' placeholder='Number'>
-                            </div>
-                            <div class='form-group'>
-                                <label for='priceProduct'>Price</label>
-                                <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price' readonly>
-                            </div>
-                            <div class='form-group'>
-                                <label for='status' class='control-label'>Status</label>
-                                <div class=''>
-                                    <select class='form-control' id='status' value=$status name='status' readonly>
-                                        <option value='' disabled selected>Status</option>
-                                        <option value='new'>new</option>
-                                        <option value='old'>old</option>
-                                    </select>          
-                                
+                            <div class='d-flex justify-content-around'>
+    
+                                <div class='form-group'>
+                                    <label for='numberProduct'>Number</label>
+                                    <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
                                 </div>
-                            </div>       
+                                <div class='form-group'>
+                                    <label for='numberBuyProduct'>Select number to buy</label>
+                                    <input type='number' class='form-control' id='numberBuyProduct' name='numberBuy' placeholder='Number'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='priceProduct'>Price</label>
+                                    <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price' readonly>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='status' class='control-label'>Status</label>
+                                    <div class=''>
+                                        <select class='form-control' id='status' value=$status name='status' readonly>
+                                            <option value='' disabled selected>Status</option>
+                                            <option value='new'>new</option>
+                                            <option value='old'>old</option>
+                                        </select>          
+                                    
+                                    </div>
+                                </div>       
+    
+                            </div>
+                            <div class='form-group'>
+                                <label for='descProduct'>Description</label>
+                                <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
+                            </div>
+                            <div class='errorMess'> $message </div>
+    
+                            <button type='submit' disabled name='addToCart' class='btn btn-primary'>Add to cart</button>
+                            <button type='submit' name='addToLike' class='btn btn-primary'>Like</button>
+                        </form>       
+                        ";
+                    } else {
+                        echo "
+                        <form method='post' action='' enctype='multipart/form-data' validate>
+                            <h2 class='text-center'>Product Infomation</h2>
+                            <div class='form-group'>
+                                <label for='nameProduct'>Name</label>
+                                <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
+                            </div>
+                            <div class='d-flex justify-content-around'>
+    
+                                <div class='form-group'>
+                                    <label for='numberProduct'>Number</label>
+                                    <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='numberBuyProduct'>Select number to buy</label>
+                                    <input type='number' class='form-control' id='numberBuyProduct' name='numberBuy' placeholder='Number'>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='priceProduct'>Price</label>
+                                    <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price' readonly>
+                                </div>
+                                <div class='form-group'>
+                                    <label for='status' class='control-label'>Status</label>
+                                    <div class=''>
+                                        <select class='form-control' id='status' value=$status name='status' readonly>
+                                            <option value='' disabled selected>Status</option>
+                                            <option value='new'>new</option>
+                                            <option value='old'>old</option>
+                                        </select>          
+                                    
+                                    </div>
+                                </div>       
+    
+                            </div>
+                            <div class='form-group'>
+                                <label for='descProduct'>Description</label>
+                                <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
+                            </div>
+                            <div class='errorMess'> $message </div>
+    
+                            <button type='submit' name='addToCart' class='btn btn-primary'>Add to cart</button>
+                            <button type='submit' name='addToLike' class='btn btn-primary'>Like</button>
+                        </form>       
+                        ";
+                    }
 
-                        </div>
-                        <div class='form-group'>
-                            <label for='descProduct'>Description</label>
-                            <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
-                        </div>
-                        <div class='errorMess'> $message </div>
-
-                        <button type='submit' name='addToCart' class='btn btn-primary'>Add to cart</button>
-                        <button type='submit' name='addToLike' class='btn btn-primary'>Like</button>
-                    </form>       
-                    ";
                 }
 
         ?>

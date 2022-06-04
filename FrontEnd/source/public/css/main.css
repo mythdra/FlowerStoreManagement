@@ -23,3 +23,11 @@
     background-color:transparent;
 }
 
+
+/* This is a single-line comment */
+/* ------------------------------------ Home page customer -------------------------------------*/
+.productChange {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}

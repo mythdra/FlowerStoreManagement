@@ -36,10 +36,10 @@
                                 <p class="mb-0 p-1 e__check-font-style">Tên sản phẩm</p>
                             </div>
                             <div class='task-name__heading col-xl-2 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Số lượng</p>
+                                <p class="mb-0 p-1 e__check-font-style">Số lượng Mua</p>
                             </div>
                             <div class='task-description__heading col-xl-2 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Giá</p>
+                                <p class="mb-0 p-1 e__check-font-style">Tổng giá</p>
                             </div>
                             <div class='task-time__heading col-xl-4 border border-top-0 border-left-0'>
                                 <p class="mb-0 p-1 e__check-font-style">Mô tả</p>
@@ -56,9 +56,10 @@
                             while ($row = $result->fetch_assoc()) {
                                 $id = $row["id"];
                                 $name = $row['name'];
-                                $number = $row['number'];
+                                $numberBuy = $row['numberBuy'];
                                 $price = $row['price'];
                                 $desc = $row['description'];
+                                $totalPrice = $price * $numberBuy;
 
                                 echo	"
                                         <div class='d-flex task-list'>
@@ -66,10 +67,10 @@
                                                 <p class='task-name e__check-font-style mb-0 p-1'> <a class='text-dark' href='cart_infomation_cus.php?id=$id'> $name </a></p>
                                             </div>
                                             <div class='task-description__heading col-xl-2 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                                <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='cart_infomation_cus.php?id=$id'> $number </a></p>
+                                                <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='cart_infomation_cus.php?id=$id'> $numberBuy </a></p>
                                             </div>
                                             <div class='task-time__heading col-xl-2 border border-top-0 border-left-0'>
-                                                <p class='mb-0 p-1 e__check-font-style'>$price</p>
+                                                <p class='mb-0 p-1 e__check-font-style'>$totalPrice </p>
                                             </div>
                                             <div class='task-rate__heading col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
                                                 <p class='badge badge-info mb-0 p-1 e__check-font-style'>$desc</p>
