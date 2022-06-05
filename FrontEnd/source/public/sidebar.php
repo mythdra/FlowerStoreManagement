@@ -39,7 +39,7 @@
                 <p class="mb-0 ml-2 e__check-font-style e__task-name-btn">SẢN PHẨM HẾT HÀNG</p>	
                 </button>
             </li>
-            <li class="mt-2 mb-2"> 
+            <!-- <li class="mt-2 mb-2"> 
                 <button onclick="moveToGetInProgressTaskPage();"
                 class="btn btn-secondary e__btn-task w-100 d-flex align-items-center">
                 <i class="fas fa-trash"></i>
@@ -59,7 +59,7 @@
                 <i class="fas fa-calendar-day"></i>
                 <p class="mb-0 ml-2 e__check-font-style e__task-name-btn">Danh sách đơn nghỉ phép</p>	
                 </button>
-            </li>
+            </li> -->
         </ul>
     </div>
     

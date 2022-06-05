@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     function checkLogin($type)
     {
         // if (!isset($_SESSION["login"])){

@@ -1,11 +1,14 @@
 <?php
 session_start();
 require_once("connect_db.php");
-if ($_SESSION['login']){
-	if ($_SESSION['type'] == 0){
-		header("Location: home.php");
-	} else if ($_SESSION['type'] == 1) {
-		header("Location: /customer/home.php");
+
+if (isset($_SESSION["login"])) {
+	if ($_SESSION['login']){
+		if ($_SESSION['type'] == 0){
+			header("Location: home.php");
+		} else if ($_SESSION['type'] == 1) {
+			header("Location: customer/home.php");
+		}
 	}
 }
 if (isset($_POST["password"]) && isset($_POST["username"])) {
@@ -18,10 +21,12 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 		$row = $result->fetch_assoc();
 
 		$_SESSION['type'] = $row["type"];
+		$_SESSION['username'] = $user;
+		
 		if ($_SESSION['type'] == 0){
 			header("Location: home.php");
 		} else if ($_SESSION['type'] == 1) {
-			header("Location: /customer/home.php");
+			header("Location: customer/home.php");
 		}
 	  }
 }
@@ -58,7 +63,7 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 						<h3 class="mb-4 text-center">Have an account?</h3>
-						<form action="login.php" class="signin-form" method="post">
+						<form action="" class="signin-form" method="post">
 							<div class="form-group">
 								<input type="text" id="username-field" name="username" class="form-control username" placeholder="Username">
 							</div>

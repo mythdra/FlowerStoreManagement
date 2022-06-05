@@ -5,19 +5,28 @@
 	require_once('../connect_db.php');
 	$message = '';
 
+    $idCus = $_SESSION['username'];
+
     if (isset($_POST['addToCart'])) {
 
         $id = $_GET['id'];
         $name = $_POST['name'];
         $number = $_POST['number'];
+        $numberBuy = $_POST['numberBuy'];
         $price = $_POST['price'];
         $desc = $_POST['desc'];
-    
-        $sql = "INSERT INTO cart(idProduct, name, number, price, description) VALUES (?, ?, ?, ?, ?) ";
+        
+        if ($numberBuy > $number) {
+            $message = "The amount you want to buy is bigger than the amount we have";
+            header("product_infomation_cus.php?id=$id");
+        }
+
+        // INSERT INTO `cart`(`id`, `name`, `price`, `number`, `description`, `idProduct`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+        $sql = "INSERT INTO cart(idProduct, name, number, price, description, idCustomer) VALUES (?, ?, ?, ?, ?, ?) ";
         // $result = connect_db()->query($sql);
         $conn = connect_db();
         $stm = $conn->prepare($sql);
-        $stm->bind_param('isids', $id, $name, $number, $price, $desc);
+        $stm->bind_param('isidss', $id, $name, $numberBuy, $price, $desc, $idCus);
         $stm->execute();
     
         // echo $name;
@@ -31,10 +40,7 @@
         }
     
     }
-
     
-    $message = '';
-
     if (isset($_POST['removeFromLike'])) {
 
         $id = $_GET['id'];
@@ -45,7 +51,11 @@
         $stm -> bind_param("i", $id);
         $stm -> execute();
 
-        header("Location : home.php");
+        if ($stm->affected_rows == 1) {
+            header("Location: home.php");
+        } else {
+            $message = "Xóa thất bại";
+        }
     }
 
 
@@ -91,7 +101,6 @@
                 while ($row = $result->fetch_assoc()) {
                     $id = $row["id"];
                     $name = $row['name'];
-                    $number = $row['number'];
                     $price = $row['price'];
                     $desc = $row['description'];
 
@@ -101,10 +110,6 @@
                         <div class='form-group'>
                             <label for='nameProduct'>Name</label>
                             <input type='text' class='form-control' id='nameProduct' name='name' value='$name'>
-                        </div>
-                        <div class='form-group'>
-                            <label for='numberProduct'>Number</label>
-                            <input type='number' class='form-control' id='numberProduct' name='number' value= $number>
                         </div>
                         <div class='form-group'>
                             <label for='priceProduct'>Price</label>

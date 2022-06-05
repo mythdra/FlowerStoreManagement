@@ -1,7 +1,7 @@
 <?php
     require_once("connect_db.php");
-    require_once("checkLogin.php");
-    checkLogin(array(0));
+    // require_once("checkLogin.php");
+    // checkLogin(array(0));
     $message = "";
     if (isset($_POST['submit'])) {
         if (!isset($_POST['name'])  || !isset($_POST['number']) || !isset($_POST['price']) || !isset($_POST['desc']) || !isset($_POST['status'])){
@@ -56,10 +56,10 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <style>
-	body {
-		background-image: url(images/bg.jpg)
-	}
-
+	 body {
+        background-image: url(images/bg.jpg);
+        background-size: cover;
+    }
 </style>
 <body>
     

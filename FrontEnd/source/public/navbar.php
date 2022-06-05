@@ -16,9 +16,7 @@
         </a>
         <div class="d-flex">
 
-            <a href="#"class="name mr-2">Thông tin user</span>
-            <button name="submit" id="changePassBtn" class="mr-2"><a href="changePassword.php"> Đổi mật khẩu </a></button>
-            <button id="logoutBtn"><a href="/logout.php"> Đăng xuất </a></button>
+            <button id="logoutBtn"><a href="logout.php"> Đăng xuất </a></button>
 
         </div>
     </nav>

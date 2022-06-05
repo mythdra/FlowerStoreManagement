@@ -1,7 +1,7 @@
 <?php
-session_start();
-require_once("checkLogin.php");
-checkLogin(array(0));
+    session_start();
+    require_once("checkLogin.php");
+    checkLogin(array(0));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,8 @@ checkLogin(array(0));
 </head>
 <style>
     body {
-        background-image: url(images/bg.jpg)
+        background-image: url(images/bg.jpg);
+        background-size: cover;
     }
 </style>
 
@@ -37,20 +38,20 @@ checkLogin(array(0));
                 <div class="scrollable-task">
                     <div class="e__task__heading">
                         <div class="d-flex">
-                            <div class='task-id__heading col-xl-4 col-lg-2 col-md-2 col-sm-3 col-3 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Tên sản phẩm</p>
+                            <div class='col-xl-4 col-lg-2 col-md-2 col-sm-3 col-3 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Tên sản phẩm</p>
                             </div>
-                            <div class='task-name__heading col-xl-1 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Số lượng</p>
+                            <div class='col-xl-1 col-sm-5 col-5 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Số lượng</p>
                             </div>
-                            <div class='task-description__heading col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Giá</p>
+                            <div class='col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Giá</p>
                             </div>
-                            <div class='task-time__heading col-xl-4 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Mô tả</p>
+                            <div class='col-xl-4 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Mô tả</p>
                             </div>
                             <div class='col-xl-2 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Tình trạng</p>
+                                <p class="mb-0 p-1">Tình trạng</p>
                             </div>
                         </div>
                     </div>
@@ -72,40 +73,40 @@ checkLogin(array(0));
                             if ($number > 0) {
                                 echo    "
                                             <div class='d-flex task-list'>
-                                                <div class='task-name__heading col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                                    <p class='task-name e__check-font-style mb-0 p-1'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
+                                                <div class='col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
+                                                    <p class='mb-0 p-1 productChange'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
                                                 </div>
-                                                <div class='task-description__heading col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                                    <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
+                                                <div class='col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
+                                                    <p class='mb-0 p-1 productChange'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
                                                 </div>
-                                                <div class='task-time__heading col-xl-1 border border-top-0 border-left-0'>
-                                                    <p class='badge badge-success mb-0 p-1 e__check-font-style'>$price</p>
+                                                <div class='col-xl-1 border border-top-0 border-left-0'>
+                                                    <p class='badge badge-success mb-0 p-1' productChange>$price</p>
                                                 </div>
-                                                <div class='task-rate__heading col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
-                                                    <p class='badge badge-primary mb-0 p-1 e__check-font-style'>$desc</p>
+                                                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
+                                                    <p class='badge badge-primary mb-0 p-1 productChange'>$desc</p>
                                                 </div>		
                                                 <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
-                                                    <p class='badge badge-success mb-0 p-1 e__check-font-style'>$status</p>
+                                                    <p class='badge badge-success mb-0 p-1 productChange'>$status</p>
                                                 </div>									
                                             </div>
                                             ";
                             } else if ($number == 0) {
                                 echo    "
                                             <div class='d-flex task-list'>
-                                                <div class='task-name__heading col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                                    <p class='task-name e__check-font-style mb-0 p-1'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
+                                                <div class='col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
+                                                    <p class='mb-0 p-1 productChange'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
                                                 </div>
-                                                <div class='task-description__heading col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                                    <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
+                                                <div class='col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
+                                                    <p class='mb-0 p-1 productChange'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
                                                 </div>
-                                                <div class='task-time__heading col-xl-1 border border-top-0 border-left-0'>
-                                                    <p class='badge badge-danger mb-0 p-1 e__check-font-style'>$price</p>
+                                                <div class='col-xl-1 border border-top-0 border-left-0'>
+                                                    <p class='badge badge-danger mb-0 p-1 productChange'>$price</p>
                                                 </div>
-                                                <div class='task-rate__heading col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
-                                                    <p class='badge badge-warning mb-0 p-1 e__check-font-style'>$desc</p>
+                                                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
+                                                    <p class='badge badge-warning mb-0 p-1 productChange'>$desc</p>
                                                 </div>		
                                                 <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
-                                                    <p class='badge badge-danger mb-0 p-1 e__check-font-style'>$status</p>
+                                                    <p class='badge badge-danger mb-0 p-1 productChange'>$status</p>
                                                 </div>									
                                             </div>
                                             ";

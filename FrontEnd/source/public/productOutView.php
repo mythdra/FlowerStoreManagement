@@ -10,17 +10,18 @@
 
 </head>
 <style>
-	body {
-		background-image: url(images/bg.jpg)
-	}
+	 body {
+        background-image: url(images/bg.jpg);
+        background-size: cover;
+    }
 
 </style>
 <body>
     
     <?php
         require_once("navbar.php");
-        require_once("checkLogin.php");
-checkLogin(array(0,1,2));
+    //         require_once("checkLogin.php");
+    // checkLogin(array(0,1,2));
     ?>
 
     <div class="row">
@@ -33,20 +34,20 @@ checkLogin(array(0,1,2));
                 <div class="scrollable-task">
                     <div class="e__task__heading">
                         <div class="d-flex">
-                            <div class='task-id__heading col-xl-4 col-lg-2 col-md-2 col-sm-3 col-3 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Tên sản phẩm</p>
+                            <div class='col-xl-4 col-lg-2 col-md-2 col-sm-3 col-3 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Tên sản phẩm</p>
                             </div>
-                            <div class='task-name__heading col-xl-1 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Số lượng</p>
+                            <div class='col-xl-1 col-sm-5 col-5 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Số lượng</p>
                             </div>
-                            <div class='task-description__heading col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Giá</p>
+                            <div class='col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Giá</p>
                             </div>
-                            <div class='task-time__heading col-xl-4 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Mô tả</p>
+                            <div class='col-xl-4 border border-top-0 border-left-0'>
+                                <p class="mb-0 p-1">Mô tả</p>
                             </div>		
                             <div class='col-xl-2 border border-top-0 border-left-0'>
-                                <p class="mb-0 p-1 e__check-font-style">Tình trạng</p>
+                                <p class="mb-0 p-1">Tình trạng</p>
                             </div>						
                         </div>
                     </div>	
@@ -55,37 +56,37 @@ checkLogin(array(0,1,2));
                         
                         require_once("connect_db.php");
                         $sql = "SELECT * FROM flower WHERE number = 0";
-                            $result = connect_db()->query($sql);
+                        $result = connect_db()->query($sql);
 
-                            while ($row = $result->fetch_assoc()) {
-                                $id = $row["id"];
-                                $name = $row['name'];
-                                $number = $row['number'];
-                                $price = $row['price'];
-                                $desc = $row['description'];
-                                $status = $row['status'];
-                            
-                                echo	"
-                                <div class='d-flex task-list'>
-                                    <div class='task-name__heading col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
-                                        <p class='task-name e__check-font-style mb-0 p-1'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
-                                    </div>
-                                    <div class='task-description__heading col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
-                                        <p class='task-description e__check-font-style mb-0 p-1'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
-                                    </div>
-                                    <div class='task-time__heading col-xl-1 border border-top-0 border-left-0'>
-                                        <p class='badge badge-danger mb-0 p-1 e__check-font-style'>$price</p>
-                                    </div>
-                                    <div class='task-rate__heading col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
-                                        <p class='badge badge-warning mb-0 p-1 e__check-font-style'>$desc</p>
-                                    </div>		
-                                    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
-                                        <p class='badge badge-danger mb-0 p-1 e__check-font-style'>$status</p>
-                                    </div>									
+                        while ($row = $result->fetch_assoc()) {
+                            $id = $row["id"];
+                            $name = $row['name'];
+                            $number = $row['number'];
+                            $price = $row['price'];
+                            $desc = $row['description'];
+                            $status = $row['status'];
+                        
+                            echo	"
+                            <div class='d-flex task-list'>
+                                <div class='col-xl-4 col-sm-5 col-5 border border-top-0 border-left-0'>
+                                    <p class='productChange mb-0 p-1'> <a class='text-dark' href='product_infomation.php?id=$id'> $name </a></p>
                                 </div>
-                                ";
+                                <div class='task-description__heading col-xl-1 col-lg-6 col-md-6 border border-top-0 border-left-0'>
+                                    <p class='productChange mb-0 p-1'><a class='text-dark' href='product_infomation.php?id=$id'> $number </a></p>
+                                </div>
+                                <div class='task-time__heading col-xl-1 border border-top-0 border-left-0'>
+                                    <p class='productChange badge badge-danger mb-0 p-1'>$price</p>
+                                </div>
+                                <div class='task-rate__heading col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
+                                    <p class='productChange badge badge-warning mb-0 p-1'>$desc</p>
+                                </div>		
+                                <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-4 border border-top-0 border-left-0'>
+                                    <p class='productChange badge badge-danger mb-0 p-1'>$status</p>
+                                </div>									
+                            </div>
+                            ";
 
-                            }
+                        }
 
                     ?>		      
                         

@@ -6,7 +6,7 @@
         $host = 'localhost';
         $user = 'root';
         $pass = '';
-        $db = 'flower_management';
+        $db = 'flower_management_store';
 
         $conn = new mysqli($host, $user, $pass, $db);
         $conn->set_charset("utf8");

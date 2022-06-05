@@ -70,3 +70,7 @@ function openListProductStill() {
 function openListProductOut() {
   window.location.href = "productOutView.php";
 }
+
+function openHistoryView() {
+  window.location.href = "historyView.php";
+}

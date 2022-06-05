@@ -5,6 +5,8 @@
 	require_once('../connect_db.php');
 	$message = '';
 
+    $idCus = $_SESSION['username'];
+
     if (isset($_POST['addToCart'])) {
 
         $id = $_GET['id'];
@@ -19,11 +21,12 @@
             header("product_infomation_cus.php?id=$id");
         }
 
-        $sql = "INSERT INTO cart(idProduct, name, numberBuy, price, description) VALUES (?, ?, ?, ?, ?) ";
+        // INSERT INTO `cart`(`id`, `name`, `price`, `number`, `description`, `idProduct`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
+        $sql = "INSERT INTO cart(idProduct, name, number, price, description, idCustomer) VALUES (?, ?, ?, ?, ?, ?) ";
         // $result = connect_db()->query($sql);
         $conn = connect_db();
         $stm = $conn->prepare($sql);
-        $stm->bind_param('isids', $id, $name, $numberBuy, $price, $desc);
+        $stm->bind_param('isidss', $id, $name, $numberBuy, $price, $desc, $idCus);
         $stm->execute();
     
         // echo $name;
@@ -43,15 +46,16 @@
 
         $id = $_GET['id'];
         $name = $_POST['name'];
-        $number = $_POST['number'];
         $price = $_POST['price'];
         $desc = $_POST['desc'];
     
-        $sql = "INSERT INTO likeProduct(idProduct, name, number, price, description) VALUES (?, ?, ?, ?, ?) ";
+        // INSERT INTO `likeproduct`(`id`, `name`, `price`, `description`, `idProduct`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')
+
+        $sql = "INSERT INTO `likeproduct`(`name`, `price`, `description`, `idProduct`, `idCustomer`) VALUES (?, ?, ?, ?, ?)";
         // $result = connect_db()->query($sql);
         $conn = connect_db();
         $stm = $conn->prepare($sql);
-        $stm->bind_param('isids', $id, $name, $number, $price, $desc);
+        $stm->bind_param('sisis', $name, $price, $desc, $id, $idCus);
         $stm->execute();
     
         // echo $name;
