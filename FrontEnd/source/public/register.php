@@ -1,28 +1,22 @@
 <?php
     require_once("connect_db.php");
 
-    if (isset($_POST['submit'])) {
-        if (!isset($_POST['username']) || !isset($_POST['password'])) {
-            $message = "Vui lòng nhập đầy đủ thông tin";
-            die();
-        } else {
-            $username = $_POST(['username']);
-            $password = $_POST(['password']);
-            $type = 1;
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
 
-            $sql = "INSERT INTO account(email, password, type) VALUES('$username', '$password', '$type')";
-            // $conn = connect_db();
+            $sql = "INSERT INTO account(email, password, type) VALUES('$username', '$password', 1)";
+            $conn = connect_db();
             // $stm = $conn->prepare($sql);
-            // $stm -> bind_param("ssi", $username, $password, $type);
+            // $stm -> bind_param("ss", $username, $password);
             // $stm -> execute();
-
+			echo "Asdasd";
             $result = connect_db()->query($sql);
 
             // if ($stm->affected_rows == 1) {
-                header("Location: login.php");
+                header("Location: /login.php");
             // }
         }
-    }
 
 ?>
 
@@ -55,7 +49,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-						<form action="#" class="signin-form">
+						<form action="/register.php" class="signin-form" method="post">
 							<div class="form-group">
 								<input type="text" id="username-field" name="username" class="form-control username" placeholder="Username">
 							</div>

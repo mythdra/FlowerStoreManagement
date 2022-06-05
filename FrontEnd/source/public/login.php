@@ -2,7 +2,11 @@
 session_start();
 require_once("connect_db.php");
 if ($_SESSION['login']){
-	header("Location: home.php");
+	if ($_SESSION['type'] == 0){
+		header("Location: home.php");
+	} else if ($_SESSION['type'] == 1) {
+		header("Location: /customer/home.php");
+	}
 }
 if (isset($_POST["password"]) && isset($_POST["username"])) {
 	$pass = $_POST['password'];
@@ -14,7 +18,11 @@ if (isset($_POST["password"]) && isset($_POST["username"])) {
 		$row = $result->fetch_assoc();
 
 		$_SESSION['type'] = $row["type"];
-		header("Location: home.php");
+		if ($_SESSION['type'] == 0){
+			header("Location: home.php");
+		} else if ($_SESSION['type'] == 1) {
+			header("Location: /customer/home.php");
+		}
 	  }
 }
 
