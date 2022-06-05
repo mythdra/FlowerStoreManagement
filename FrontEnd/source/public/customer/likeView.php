@@ -12,7 +12,8 @@
 
 <style>
 	body {
-		background-image: url(../images/bg.jpg)
+		background-image: url(../images/bg.jpg);
+        background-size: cover;
 	}
 
 </style>

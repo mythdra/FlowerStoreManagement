@@ -20,7 +20,8 @@
 </head>
 <style>
 	body {
-		background-image: url(../images/bg.jpg)
+		background-image: url(../images/bg.jpg);
+        background-size: cover;
 	}
 
 </style>
@@ -54,7 +55,7 @@
                     
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
-                        <h2 class='text-center'>Product Infomation</h2>
+                        <h2 class='text-center'>Thông tin đơn hàng</h2>
                         <div class='form-group'>
                             <label for='nameProduct'>Tên đơn hàng</label>
                             <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
@@ -62,7 +63,7 @@
                         <div class='d-flex justify-content-around'>
 
                             <div class='form-group'>
-                                <label for='numberProduct'>Só lượng mua</label>
+                                <label for='numberProduct'>Số lượng mua</label>
                                 <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
                             </div>
                             
@@ -72,19 +73,17 @@
                             </div>
                         </div>
                         <div class='form-group'>
-                            <label for='nameCustomer'>Name Customer</label>
+                            <label for='nameCustomer'>Tên người nhận</label>
                             <input type='text' class='form-control' id='nameCustomer' name='nameCustomer' value='$nameCustomer' readonly>
                         </div>
                         <div class='form-group'>
-                            <label for='addressCustomer'>Address</label>
+                            <label for='addressCustomer'>Địa chỉ</label>
                             <input type='text' class='form-control' id='addressCustomer' name='addressCustomer' value='$addressCustomer' readonly>
                         </div>
                         <div class='form-group'>
-                            <label for='numberCustomer'>Number</label>
+                            <label for='numberCustomer'>Số điện thoại</label>
                             <input type='text' class='form-control' id='numberCustomer' name='numberCustomer' value='$numberCustomer' readonly>
                         </div>
-                        <div class='errorMess'> $message </div>
-
         
                     </form>       
                     ";

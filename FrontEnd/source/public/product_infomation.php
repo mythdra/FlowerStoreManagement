@@ -58,7 +58,8 @@ checkLogin(array(0,1,2));
 </head>
 <style>
 	body {
-		background-image: url(images/bg.jpg)
+		background-image: url(images/bg.jpg);
+        background-size: cover;
 	}
 
 </style>
@@ -92,23 +93,23 @@ checkLogin(array(0,1,2));
                     
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
-                        <h2 class='text-center'>Product Infomation</h2>
+                        <h2 class='text-center'>Thông tin sản phẩm</h2>
                         <div class='form-group'>
-                            <label for='nameProduct'>Name</label>
+                            <label for='nameProduct'>Tên sản phẩm</label>
                             <input type='text' class='form-control' id='nameProduct' name='name' value='$name'>
                         </div>
                         <div class='d-flex justify-content-around'>
 
                             <div class='form-group'>
-                                <label for='numberProduct'>Number</label>
+                                <label for='numberProduct'>Số lượng</label>
                                 <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number'>
                             </div>
                             <div class='form-group'>
-                                <label for='priceProduct'>Price</label>
+                                <label for='priceProduct'>Giá</label>
                                 <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price'>
                             </div>
                             <div class='form-group'>
-                                <label for='status' class='control-label'>Status</label>
+                                <label for='status' class='control-label'>Tình trạng</label>
                                 <div class=''>
                                     <select class='form-control' id='status' value=$status name='status'>
                                         <option value='' disabled selected>Status</option>
@@ -121,13 +122,13 @@ checkLogin(array(0,1,2));
 
                         </div>
                         <div class='form-group'>
-                            <label for='descProduct'>Description</label>
+                            <label for='descProduct'>Mô tả</label>
                             <textarea class='form-control' id='descProduct' name='desc' rows='3'>$desc</textarea>
                         </div>
                         <div class='errorMess'> $message </div>
 
-                        <button type='submit' name='update' class='btn btn-primary'>Update</button>
-                        <button type='submit' name='delete' class='btn btn-primary'>Delete</button>
+                        <button type='submit' name='update' class='btn btn-success'>Update</button>
+                        <button type='submit' name='delete' class='btn btn-danger'>Delete</button>
                     </form>       
                     ";
                 }

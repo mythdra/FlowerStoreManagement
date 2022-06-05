@@ -128,7 +128,7 @@
 
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
-                        <h2 class='text-center mb-0'>Product Infomation</h2>
+                        <h2 class='text-center mb-0'>Thông tin sản phẩm</h2>
                         <div class='form-group'>
                             <label for='nameProduct'>Tên sản phẩm</label>
                             <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
@@ -148,7 +148,7 @@
                             <textarea class='form-control' id='descProduct' name='desc' rows='2' readonly>$desc</textarea>
                         </div>
                         <div class='form-group'>
-                            <label for='nameCustomer'>Tên người nhậnr</label>
+                            <label for='nameCustomer'>Tên người nhận</label>
                             <input type='text' class='form-control' id='nameCustomer' name='nameCustomer' placeholder='Enter your name' required>
                         </div>
                         <div class='form-group'>
@@ -161,8 +161,8 @@
                         </div>
                         <div class='errorMess'> $message </div>
 
-                        <button type='submit' name='removeFromCart' class='btn btn-primary'>Remove from cart</button>
-                        <button type='submit' name='liquidate' class='btn btn-primary'>Liquidate ( Thanh toán )</button>
+                        <button type='submit' name='removeFromCart' class='btn btn-primary'>Bỏ khỏi giỏ hàng</button>
+                        <button type='submit' name='liquidate' class='btn btn-primary'> Thanh toán </button>
                     </form>       
                     ";
                 }

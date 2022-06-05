@@ -75,23 +75,23 @@
 
         <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-11 rounded border border-left-0 border-right-0 border-bottom-0">
             <form method="post" action="" enctype="multipart/form-data" validate>
-                <h2 class="text-center">Form add product</h2>
+                <h2 class="text-center">Bảng nhập thông tin</h2>
                 <div class="form-group">
-                    <label for="nameProduct">Name</label>
-                    <input type="text" class="form-control" id="nameProduct" name="name" placeholder="Enter name">
+                    <label for="nameProduct">Tên sản phẩm</label>
+                    <input type="text" class="form-control" id="nameProduct" name="name" placeholder="Enter name" required>
                 </div>
                 <div class="d-flex justify-content-around">
 
                     <div class="form-group">
-                        <label for="numberProduct">Number</label>
-                        <input type="number" class="form-control" id="numberProduct" name="number" placeholder="Number">
+                        <label for="numberProduct">Số lượng</label>
+                        <input type="number" class="form-control" id="numberProduct" name="number" placeholder="Number" required>
                     </div>
                     <div class="form-group">
-                        <label for="priceProduct">Price</label>
-                        <input type="number" class="form-control" id="priceProduct" name="price" placeholder="Price">
+                        <label for="priceProduct">Giá</label>
+                        <input type="number" class="form-control" id="priceProduct" name="price" placeholder="Price" required>
                     </div>
                     <div class="form-group">
-                        <label for="status" class="control-label">Status</label>
+                        <label for="status" class="control-label">Tình trạng</label>
                         <div class="">
                             <select class="form-control" id="status" name="status">
                                 <option value="" disabled selected>Status</option>
@@ -104,12 +104,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="descProduct">Description</label>
+                    <label for="descProduct">Mô tả</label>
                     <textarea class="form-control" id="descProduct" name="desc" rows="3" placeholder="Description"></textarea>
                 </div>
                 <div class="errorMess"><?= $message ?></div>
 
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-success">Thêm</button>
 
             </form>
 

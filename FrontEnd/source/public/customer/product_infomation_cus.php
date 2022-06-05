@@ -86,7 +86,8 @@
 </head>
 <style>
 	body {
-		background-image: url(../images/bg.jpg)
+		background-image: url(../images/bg.jpg);
+        background-size: cover;
 	}
 
 </style>
@@ -120,27 +121,27 @@
                     if ($number == 0) {
                         echo "
                         <form method='post' action='' enctype='multipart/form-data' validate>
-                            <h2 class='text-center'>Product Infomation</h2>
+                            <h2 class='text-center'>Thông tin sản phẩm</h2>
                             <div class='form-group'>
-                                <label for='nameProduct'>Name</label>
+                                <label for='nameProduct'>Tên sản phẩm</label>
                                 <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
                             </div>
                             <div class='d-flex justify-content-around'>
     
                                 <div class='form-group'>
-                                    <label for='numberProduct'>Number</label>
+                                    <label for='numberProduct'>Số lượng</label>
                                     <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='numberBuyProduct'>Select number to buy</label>
+                                    <label for='numberBuyProduct'>Chọn số lượng mua</label>
                                     <input type='number' class='form-control' id='numberBuyProduct' name='numberBuy' placeholder='Number'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='priceProduct'>Price</label>
+                                    <label for='priceProduct'>Giá</label>
                                     <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price' readonly>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='status' class='control-label'>Status</label>
+                                    <label for='status' class='control-label'>Tình trạng</label>
                                     <div class=''>
                                         <select class='form-control' id='status' value=$status name='status' readonly>
                                             <option value='' disabled selected>Status</option>
@@ -153,39 +154,39 @@
     
                             </div>
                             <div class='form-group'>
-                                <label for='descProduct'>Description</label>
+                                <label for='descProduct'>Mô tả</label>
                                 <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
                             </div>
                             <div class='errorMess'> $message </div>
     
-                            <button type='submit' disabled name='addToCart' class='btn btn-primary'>Add to cart</button>
-                            <button type='submit' name='addToLike' class='btn btn-primary'>Like</button>
+                            <button type='submit' disabled name='addToCart' class='btn btn-primary'>Thêm vào giỏ hàng</button>
+                            <button type='submit' name='addToLike' class='btn btn-primary'>Yêu thích</button>
                         </form>       
                         ";
                     } else {
                         echo "
                         <form method='post' action='' enctype='multipart/form-data' validate>
-                            <h2 class='text-center'>Product Infomation</h2>
+                            <h2 class='text-center'>Thông tin sản phẩm</h2>
                             <div class='form-group'>
-                                <label for='nameProduct'>Name</label>
+                                <label for='nameProduct'>Tên sản phẩm</label>
                                 <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
                             </div>
                             <div class='d-flex justify-content-around'>
     
                                 <div class='form-group'>
-                                    <label for='numberProduct'>Number</label>
+                                    <label for='numberProduct'>Số lượng</label>
                                     <input type='number' class='form-control' id='numberProduct' name='number' value=$number placeholder='Number' readonly>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='numberBuyProduct'>Select number to buy</label>
+                                    <label for='numberBuyProduct'>Chọn số lượng mua</label>
                                     <input type='number' class='form-control' id='numberBuyProduct' name='numberBuy' placeholder='Number'>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='priceProduct'>Price</label>
+                                    <label for='priceProduct'>Giá</label>
                                     <input type='number' class='form-control' id='priceProduct' name='price' value=$price placeholder='Price' readonly>
                                 </div>
                                 <div class='form-group'>
-                                    <label for='status' class='control-label'>Status</label>
+                                    <label for='status' class='control-label'>Tình trạng</label>
                                     <div class=''>
                                         <select class='form-control' id='status' value=$status name='status' readonly>
                                             <option value='' disabled selected>Status</option>
@@ -198,13 +199,13 @@
     
                             </div>
                             <div class='form-group'>
-                                <label for='descProduct'>Description</label>
+                                <label for='descProduct'>Mô tả</label>
                                 <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
                             </div>
                             <div class='errorMess'> $message </div>
     
-                            <button type='submit' name='addToCart' class='btn btn-primary'>Add to cart</button>
-                            <button type='submit' name='addToLike' class='btn btn-primary'>Like</button>
+                            <button type='submit' name='addToCart' class='btn btn-primary'>Thêm vào giỏ hàng</button>
+                            <button type='submit' name='addToLike' class='btn btn-primary'>Yêu thích</button>
                         </form>       
                         ";
                     }

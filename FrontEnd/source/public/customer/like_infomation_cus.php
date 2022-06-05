@@ -75,7 +75,8 @@
 </head>
 <style>
 	body {
-		background-image: url(../images/bg.jpg)
+		background-image: url(../images/bg.jpg);
+        background-size: cover;
 	}
 
 </style>
@@ -106,23 +107,23 @@
 
                     echo "
                     <form method='post' action='' enctype='multipart/form-data' validate>
-                        <h2 class='text-center'>Product Infomation</h2>
+                        <h2 class='text-center'>Thông tin sản phẩm</h2>
                         <div class='form-group'>
-                            <label for='nameProduct'>Name</label>
-                            <input type='text' class='form-control' id='nameProduct' name='name' value='$name'>
+                            <label for='nameProduct'>Tên sản phẩm</label>
+                            <input type='text' class='form-control' id='nameProduct' name='name' value='$name' readonly>
                         </div>
                         <div class='form-group'>
-                            <label for='priceProduct'>Price</label>
-                            <input type='number' class='form-control' id='priceProduct' name='price' value=$price>
+                            <label for='priceProduct'>Giá</label>
+                            <input type='number' class='form-control' id='priceProduct' name='price' value=$price readonly>
                         </div>
                         <div class='form-group'>
-                            <label for='descProduct'>Description</label>
-                            <textarea class='form-control' id='descProduct' name='desc' rows='3'>$desc</textarea>
+                            <label for='descProduct'>Mô tả</label>
+                            <textarea class='form-control' id='descProduct' name='desc' rows='3' readonly>$desc</textarea>
                         </div>
                         <div class='errorMess'> $message </div>
 
-                        <button type='submit' name='addToCart' class='btn btn-primary'>Add to cart</button>
-                        <button type='submit' name='removeFromLike' class='btn btn-primary'>DisLike</button>
+                        <button type='submit' name='addToCart' class='btn btn-primary'>Thêm vào giỏ hàng</button>
+                        <button type='submit' name='removeFromLike' class='btn btn-primary'>Bỏ yêu thích</button>
                     </form>       
                     ";
                 }
