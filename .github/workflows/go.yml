@@ -2,7 +2,9 @@ name: Go
 
 on:
   push:
-    branches: [feature/ci-*]
+    branches:
+      - feature/ci-*
+      - develop
   pull_request:
     branches: [feature/ci-*]
 
